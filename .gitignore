@@ -17,3 +17,7 @@
 # UI
 node_modules
 dist
+
+# Compiled
+/gosus
+assets.go
