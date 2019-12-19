@@ -4,6 +4,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router'
 import App from './components/app.vue';
 import Thermals from './components/thermals.vue';
+import Fans from './components/fans.vue';
  
 Vue.use(VueRouter);
 
@@ -16,6 +17,10 @@ const router = new VueRouter({
     {
       path: '/thermals',
       component: Thermals
+    },
+    {
+      path: '/fans',
+      component: Fans
     },
   ]
 });
