@@ -4,6 +4,7 @@
   "description": "This is the client of this project",
   "main": "dist/main.js",
   "scripts": {
+    "start:dev": " npm run-script build && webpack-dev-server --open-page /dist/index.html",
     "clean": "rm -R dist",
     "build": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +21,8 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "autoprefixer": "^9.7.2",

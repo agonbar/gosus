@@ -7,21 +7,21 @@ import (
 
 // Counter is a simple example of automatic Go-to-JS data binding
 type Counter struct {
-	Value string `json:"value"`
+	Value *gosensors.Sensors `json:"value"`
 }
 
 // Add increases the value of a counter by n
 func (c *Counter) Add(n string) {
-	c.Value = c.Value + n
+	// c.Value = c.Value + n
 }
 
-// Reset sets the value of a counter back to zero
-func (c *Counter) Reset() {
-	c.Value = ""
+// Update the values
+func (c *Counter) Update() {
+	c.Value = getSensors()
 }
 
 func main() {
-	w := webview.New(webview.Settings{Title: "Gosus", Debug: true})
+	w := webview.New(webview.Settings{Title: "Gosus", Debug: true, Resizable: true})
 	defer w.Exit()
 
 	w.Dispatch(func() {
@@ -34,13 +34,12 @@ func main() {
 	w.Run()
 }
 
-func getSensors() string {
+func getSensors() *gosensors.Sensors {
 	sensors, err := gosensors.NewFromSystem()
 
 	if err != nil {
 		panic(err)
 	}
 
-	s := sensors.JSON()
-	return s
+	return sensors
 }
